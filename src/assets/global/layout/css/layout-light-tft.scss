@@ -1,0 +1,28 @@
+$primaryColor: #0067B1;
+$primaryDarkColor: #005694;
+$primaryLightColor: #0079CF;
+$accentColor: #003359;
+$accentDarkColor: #00223C;
+$accentLightColor: #004476;
+$accentTextColor: #FFFFFF;
+$darkMenuBgColor: #424242;
+$darkMenuHoverColor: #676767;
+$darkMenuRouterLinkActiveColor: #0079CF;
+$lightMenuRouterLinkActiveColor: #0067B1;
+$horizontalLightMenuRouterLinkActiveColor: #0079CF;
+
+@import '../../sass/layout/variables-light';
+
+@import './application/layout-variables-tft';
+
+/* START LIGHT LAYOUT CUSTOM VARIABLES */
+$verticalMenuTableHover: #E6F2FB;
+$verticalMenuTableActive: #CDE6F7;
+$verticalMenuTableBorderBottomColor: #CCCCCC;
+$verticalMenuTableHoverColor: #000000;
+$verticalMenuTableActiveColor: #000000;
+$layoutContainerLayoutMenuBackgroundColor: #FFFFFF;
+$layoutContainerTopbarTopbarRightTopbarItemsTopbarItemsVisible: #FFFFFF;
+/* END LIGHT LAYOUT CUSTOM VARIABLES */
+
+@import 'application/_layout';

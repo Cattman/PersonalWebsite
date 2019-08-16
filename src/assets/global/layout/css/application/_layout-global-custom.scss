@@ -1,0 +1,115 @@
+/* Top Navigation Bar Styling */
+.layout-container .topbar .topbar-left {
+    background-color: $primaryColor;
+}
+
+#topbar-left-menu-group {
+    float: left;
+}
+
+#topbar-left-menu-group .ui-button:hover {
+    top: 1px;
+}
+
+#topbar-left-menu-group .ui-button.ui-state-active {
+    top: 1px;
+}
+
+.layout-container .layout-menu {
+    background-color: $layoutContainerLayoutMenuBackgroundColor;
+    box-shadow: none;
+    height: calc(100% - 75px);
+}
+
+.layout-container .topbar .topbar-left {
+    box-shadow: none;
+}
+
+/* Side Navigation Bar Styling */
+.vertical-menu {
+    width: 240px;
+    height: auto;
+}
+
+.vertical-menu table {
+    background-color: transparent;
+    color: $textColor;
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid $verticalMenuTableBorderBottomColor;
+    cursor: pointer;
+}
+
+.vertical-menu table tr {
+    padding: 2px;
+}
+
+.vertical-menu table:hover {
+    background-color: $verticalMenuTableHover;
+    padding-left: 1px;
+    color: $verticalMenuTableHoverColor;
+}
+
+.vertical-menu table.active {
+    background-color: $verticalMenuTableActive;
+    padding-left: 1px;
+    color: $verticalMenuTableActiveColor;
+}
+
+body .ui-accordion .ui-accordion-content {
+    padding: .1em .1em;
+}
+
+/* Utility Class No Select */
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Footer Styling */
+.footer {
+    color: $textColor;
+}
+
+.card {
+    box-shadow: none;
+    webkit-box-shadow: none;
+    moz-box-shadow: none;
+    webkit-border-radius: 0px;
+    border-radius: 0px;
+    background-color: transparent;
+}
+
+.layout-container .footer {
+    padding: 0;
+}
+
+/* Topbar Left Scrollable Menu */
+.toolbar-left-scrollable-menu-items {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    white-space: nowrap;
+    margin-top: -12px; // @ 16px font size which is default.
+    padding-left: 0px;
+}
+
+.toolbar-left-scrollable-menu-items:hover {
+    overflow-x: auto;
+}
+
+.toolbar-left-scrollable-menu-items-with-sidebar {
+    width: calc(100vw - 395px);
+}
+
+.toolbar-left-scrollable-menu-items-without-sidebar {
+    width: calc(100vw - 350px);
+}
+
+.toolbar-left-scrollable-menu-item {
+    display: inline-block;
+    float: none;
+}

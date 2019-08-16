@@ -1,0 +1,22 @@
+$primaryColor: #0067B1;
+$primaryDarkColor: #005694;
+$primaryLightColor: #0079cf;
+$accentColor: #003359;
+$accentDarkColor: #00223C;
+$accentLightColor: #004476;
+$accentTextColor: #FFFFFF;
+
+@import '../sass/theme/variables-dark';
+
+@import './application/theme-variables-tft';
+
+/* START DARK THEME CUSTOM VARIABLES */
+$bodyUiWidgetContentBackgroundColor: #333333;
+
+$bodyALinkColor: darkorchid;
+$bodyAVisitedColor: purple;
+$bodyAHoverColor: darkorchid;
+$bodyAActiveColor: darkorchid;
+/* END DARK THEME CUSTOM VARIABLES */
+
+@import 'application/_theme';

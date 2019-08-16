@@ -1,0 +1,35 @@
+textarea.source-code-textarea {
+    color: $textColor;
+}
+
+.accent-text-color-dialog > .ui-dialog > .ui-dialog-titlebar, .accent-text-color-dialog > .ui-dialog > .ui-dialog-titlebar > .ui-dialog-titlebar-close > span {
+    color: $accentTextColor;
+}
+
+.top-menu-select-button .ui-button {
+    box-shadow: none;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+    body {
+        font-size: 14px;
+
+        .toolbar-left-scrollable-menu-items {
+            margin-top: -10px;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+/* Override Side Menu Margin Left */
+@media (min-width: 1025px) {
+    .layout-container.menu-layout-static .layout-main.override-side-menu-margin-left {
+        margin-left: 0px;
+    }
+}

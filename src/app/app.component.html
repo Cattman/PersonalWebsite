@@ -1,21 +1,31 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="./assets/InitialsLogo.png">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="layout-wrapper" [ngClass]="{'layout-compact':layoutCompact}">
 
-<router-outlet></router-outlet>
+    <div #layoutContainer class="layout-container" 
+            [ngClass]="{'menu-layout-static': !isOverlay(),
+            'menu-layout-overlay': isOverlay(),
+            'layout-menu-overlay-active': overlayMenuActive,
+            'menu-layout-horizontal': isHorizontal(),
+            'layout-menu-static-inactive': staticMenuDesktopInactive,
+            'layout-menu-static-active': staticMenuMobileActive}">
+
+        <top-bar></top-bar>
+        <!-- The sidebar display is hidden automatically when no side menu items are loaded.-->
+        <div [hidden]="isSideMenuHidden()" class="layout-menu" [ngClass]="{'layout-menu-dark':darkMenu}" (click)="onMenuClick($event)">
+            <div #layoutMenuScroller class="nano">
+                <div class="nano-content menu-scroll-content">
+                    <app-inline-profile *ngIf="profileMode=='inline'&&!isHorizontal()"></app-inline-profile>
+                    <menu [reset]="resetMenu"></menu>
+                </div>
+            </div>
+        </div>
+        
+        <div [ngClass]="{'override-side-menu-margin-left' : isSideMenuHidden()}" class="layout-main">
+            <router-outlet></router-outlet>
+            
+        </div>
+        
+        <div class="layout-mask" (click)="toggleSideNavBar(false, true)"></div>
+    </div>
+
+</div>
