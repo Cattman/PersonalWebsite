@@ -1,11 +1,11 @@
-import { browser, by, element } from 'protractor';
+import { browser, element, by } from 'protractor';
 
-export class AppPage {
-  navigateTo() {
-    return browser.get(browser.baseUrl) as Promise<any>;
-  }
+export class PrimeNgTemplate {
+    navigateTo() {
+        return browser.get('/');
+    }
 
-  getTitleText() {
-    return element(by.css('app-root h1')).getText() as Promise<string>;
-  }
+    getParagraphText() {
+        return element(by.css('app-root h1')).getText();
+    }
 }

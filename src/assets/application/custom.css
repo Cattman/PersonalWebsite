@@ -1,0 +1,79 @@
+/* Style Guide Form Styling */
+.form-input-control, .form-input-control .ui-listbox, .form-input-control .ui-dropdown {
+    width: 100%;
+}
+
+.align-right {
+    text-align: right;
+}
+
+/* Dialog Responsive Styling Overrides */
+textarea.source-code-textarea:disabled {
+    border: 1px solid #CCCCCC;
+    opacity: 1;
+}
+
+p-dialog.source-code-dialog .ui-dialog {
+    top: 5% !important;
+    right: 5%;
+    left: 5% !important;
+    bottom: 5%
+}
+
+p-dialog.source-code-dialog .ui-dialog .ui-dialog-content {
+    overflow: unset;
+}
+
+body p-dialog.source-code-dialog .ui-widget-header {
+    background-color: transparent;
+}
+
+.overflowHidden {
+    overflow: hidden;
+}
+
+.overflowInitial {
+    overflow: initial;
+}
+
+/* Note: Due to not being able to resolve what height was based on inside a pDialog the following fixed positioning scheme was required to get a reliable reference point.
+   This is a work around no other styling method seemed to work. The following media query is required as well. */
+textarea.source-code-textarea {
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+    overflow-y: auto;
+    resize: none;
+    position: fixed;
+    z-index: 9999;
+
+    /*
+    IE 11 Does Not Support CSS Variables:
+    --dialog-header-height: calc(0.625em + 1.5em + 0.625em);
+    --dialog-top: 5%;
+    --dialog-right: 5%;
+    --dialog-bottom: 5%;
+    --dialog-left: 5%;
+    --dialog-border-width: 1px;
+    --textarea-top-padding: 1em;
+    --textarea-right-padding: 1em;
+    --textarea-bottom-padding: 1em;
+    --textarea-left-padding: 1em;
+
+    top: calc(var(--dialog-top) + var(--dialog-border-width) + var(--textarea-top-padding) + var(--dialog-header-height));
+    width: calc(100% - var(--dialog-left) - var(--dialog-right) - 2 * var(--dialog-border-width) - var(--textarea-left-padding) - var(--textarea-right-padding));
+    bottom: calc(var(--dialog-bottom) + var(--dialog-border-width) + var(--textarea-bottom-padding));
+    left: calc(var(--dialog-left) + var(--dialog-border-width) + var(--textarea-left-padding));
+    */
+
+    top: calc(5% + 1px + 3.75em);
+    width: calc(90% - 2px - 2em);
+    height: calc(90% - 2px - 4.75em);
+    left: calc(5% + 1px + 1em);
+}
+
+@media screen and (max-width: 180px), (max-height: 120px) {
+    textarea.source-code-textarea {
+        display: none;
+    }
+}
