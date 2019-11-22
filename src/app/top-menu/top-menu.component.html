@@ -1,1 +1,9 @@
-<p-selectButton #selectButton styleClass="top-menu-select-button" [options]="types" [(ngModel)]="selectedType" (onChange)="app.onTopMenubarChange($event)"></p-selectButton>
+
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item>Settings</button>
+  <button mat-menu-item>Help</button>
+</mat-menu>
+
+<button mat-icon-button [matMenuTriggerFor]="appMenu">
+  <mat-icon>more_vert</mat-icon>
+</button>

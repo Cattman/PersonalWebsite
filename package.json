@@ -1,58 +1,110 @@
 {
   "name": "personal-website",
   "license": "UNLICENSED",
+  "config": {
+    "dev": {
+      "deploy": {
+        "path": "\\\\app02-dvl\\sites\\tftdvl\\production\\anodizing\\anodizingreceivingapp",
+        "e2eUrl": "http://tftdvl/production\\anodizing/anodizingreceivingapp/#/",
+        "baseHref": "/production\\anodizing/anodizingreceivingapp/"
+      }
+    },
+    "prod": {
+      "deploy": {
+        "path": "\\\\app02-dvl\\sites\\tftdvl\\production\\anodizing\\anodizingreceivingapp",
+        "e2eUrl": "http://host/#/",
+        "baseHref": "/production/anodizing/anodizingreceivingapp/"
+      }
+    }
+  },
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "parallelshell \"ng serve\" \"npm run watch:custom-css\"",
+    "htmlhint": "htmlhint --config .htmlhintrc --ignore **/global/** src/**/*.{htm,html}",
+    "jshint": "jshint .",
+    "lint": "ng lint --type-check",
+    "lint:markdown": "markdownlint --config markdownlint.json README.md",
+    "check": "npm run htmlhint && npm run lint && npm run lint:markdown && npm run jshint",
+    "unit": "ng test --code-coverage --no-progress --browsers=ChromeHeadless --watch=false",
+    "component": "echo component tests not implemented",
+    "e2e:dev": "ng e2e --protractor-config=protractor-ci-dev.conf.js --dev-server-target=",
+    "e2e:dev:headless": "ng e2e --protractor-config=protractor-ci-dev-headless.conf.js --dev-server-target=",
+    "e2e:prod": "ng e2e --protractor-config=protractor-ci-prod.conf.js --dev-server-target=",
+    "e2e:prod:headless": "ng e2e --protractor-config=protractor-ci-prod-headless.conf.js --dev-server-target=",
+    "cleancss:custom-css": "cleancss -o src/assets/application/custom.min.css src/assets/application/custom.css",
+    "watch:custom-css": "onchange \"src/assets/application/custom.css\" -v -- npm run cleancss:custom-css",
+    "package": "npm run cleancss:custom-css",
+    "webdriver:update": "webdriver-manager update",
+    "deploy": "ng build ---configuration=dev --base-href \"%npm_package_config_dev_deploy_baseHref%\"",
+    "deploy:prod": "ng build --prod ---configuration=production --base-href \"%npm_package_config_prod_deploy_baseHref%\"",
+    "build": "npm run check && npm run package && npm run unit && npm run component && npm run deploy",
+    "build:prod": "npm run check && npm run package && npm run unit && npm run component && npm run deploy:prod",
+    "publish": "rimraf %npm_package_config_dev_deploy_path% && cpx \"dist/**\" %npm_package_config_dev_deploy_path%",
+    "publish:prod": "rimraf %npm_package_config_prod_deploy_path% && cpx \"dist/**\" %npm_package_config_prod_deploy_path%"
   },
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cattman/PersonalWebsite.git"
+  },
   "dependencies": {
-    "@angular/animations": "8.0.3",
+    "@angular/animations": "^8.2.14",
     "@angular/common": "~8.0.0",
     "@angular/compiler": "~8.0.0",
-    "@angular/core": "~8.0.0",
+    "@angular/core": "~8.2.14",
     "@angular/forms": "~8.0.0",
+    "@angular/material": "^8.2.3",
     "@angular/platform-browser": "8.0.3",
     "@angular/platform-browser-dynamic": "~8.0.0",
+    "@angular/platform-server": "^5.0.0",
     "@angular/router": "~8.0.0",
     "chart.js": "2.8.0",
+    "flexgrid": "^4.1.0",
     "font-awesome": "4.7.0",
     "jquery": "3.4.1",
     "nanoscroller": "0.8.7",
     "ngx-cookie": "4.1.2",
     "ngx-cookie-service": "2.2.0",
+    "primeflex": "1.0.0-rc.1",
     "primeicons": "1.0.0",
     "primeng": "8.0.0",
-    "quill": "1.3.6",
+    "quill": "^1.3.7",
     "rxjs": "~6.4.0",
     "web-animations-js": "^2.3.2",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.800.0",
+    "@angular/cdk": "~8.2.3",
     "@angular/cli": "~8.0.1",
+    "@angular/common": "~8.0.0",
     "@angular/compiler-cli": "~8.0.0",
     "@angular/language-service": "~8.0.0",
-    "@angular/cdk": "~7.1.0",
+    "@nguniversal/express-engine": "^5.0.0",
     "@types/jasmine": "~3.3.8",
-    "@types/jasminewd2": "~2.0.3",
+    "@types/jasminewd2": "^2.0.8",
     "@types/node": "~8.9.4",
-    "codelyzer": "^5.0.0",
+    "clean-css-cli": "^4.2.1",
+    "codelyzer": "^5.2.0",
+    "csslint": "^1.0.5",
+    "htmlhint": "^0.11.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
+    "jshint": "^2.10.3",
     "karma": "~4.1.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "markdownlint-cli": "^0.19.0",
+    "minify": "~4.1.0",
+    "parallelshell": "^3.0.2",
     "protractor": "~5.4.0",
+    "rimraf": "^2.7.1",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.4.3"
+    "typescript": "~3.4.3",
+    "watch": "~1.0.2"
   }
 }

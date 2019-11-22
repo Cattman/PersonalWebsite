@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
@@ -67,10 +67,10 @@ import {ToolbarModule} from 'primeng/primeng';
 import {TooltipModule} from 'primeng/primeng';
 import {TreeModule} from 'primeng/primeng';
 import {TreeTableModule} from 'primeng/primeng';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { MenuComponent } from './menu/menu.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
@@ -78,13 +78,12 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { ProjectsPageComponent } from './projects-page/projects-page.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { MenuService } from './menu.service';
+import { MenuService } from './services/menu.service';
 import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
     TopBarComponent,
     TopMenuComponent,
     HomePageComponent,
@@ -93,6 +92,7 @@ import {CookieService} from 'ngx-cookie-service';
     ProjectsPageComponent
   ],
   imports: [
+    MatMenuModule,
     BrowserModule,
     AppRoutingModule,
     BrowserModule,
@@ -164,7 +164,7 @@ import {CookieService} from 'ngx-cookie-service';
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
-    MenuService, 
+    MenuService,
     CookieService
   ],
   bootstrap: [AppComponent]

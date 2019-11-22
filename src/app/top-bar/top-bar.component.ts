@@ -1,18 +1,18 @@
 import {Component, Inject, forwardRef, ViewChild, HostListener, ViewContainerRef} from '@angular/core';
 import {AppComponent} from '../app.component';
 import {SelectItem} from 'primeng/primeng';
-import {MenuService} from '../menu.service';
+import {MenuService} from '../services/menu.service';
 import {Location} from '@angular/common';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'top-bar',
+  selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent {
 
-  public isPainted: boolean = true;
+  public isPainted = true;
 
     public cookieTheme = 'DEFAULT';
 

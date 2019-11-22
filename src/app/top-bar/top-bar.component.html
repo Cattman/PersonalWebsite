@@ -1,62 +1,12 @@
-<div class="topbar clearfix">
-    <div class="topbar-left">            
-        <div class="logo"></div>
+
+<div class="topbar-container">
+    <div class="topbar-item">
+        Logo
     </div>
-
-    <ng-container *ngIf="isPainted">
-        <div class="topbar-right">
-            <ul class="topbar-items animated fadeInDown" [ngClass]="{'topbar-items-visible': app.topbarMenuActive}">
-                <ng-container *ngFor="let type of types; let i = index">
-                    <li role="menuitem" class="collapsible-select-items">
-                        <a [href]="getLinkHref(type.value)">
-                            <i [ngClass]="type.icon"></i>
-                            <span>{{type.label}}</span>
-                        </a>
-                    </li>
-                </ng-container>
-                <!--
-                <li #settings [ngClass]="{'active-top-menu':app.activeTopbarItem === settings}">
-                    <a id="topbar-right-settings" href="#" (click)="app.onTopbarItemClick($event,settings)"> 
-                        <i class="topbar-icon material-icons">settings</i>
-                        <span class="topbar-item-name">Settings</span>
-                    </a>
-                    <ul class="ultima-menu animated fadeInDown">
-                        <li id="topbar-right-settings-dark-theme" role="menuitem" (click)="app.changeTheme('dark')">
-                            <a href="javascript:void(0);">
-                                <i class="material-icons">brush</i>
-                                <span>Dark Theme</span>
-                            </a>
-                        </li>
-                        <li id="topbar-right-settings-light-theme" role="menuitem" (click)="app.changeTheme('light')">
-                            <a href="javascript:void(0);">
-                                <i class="material-icons">brush</i>
-                                <span>Light Theme</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                -->
-            </ul>
-
-            <div id="topbar-left-menu-group">
-                <a *ngIf="isSidebarAvailable()" id="menu-button" href="#" (click)="app.onMenuButtonClick($event)">
-                    <i></i>
-                </a>
-            </div>
-
-            <a id="topbar-menu-button" href="#" (click)="app.onTopbarMenuButtonClick($event)">
-                <i class="material-icons">menu</i>
-            </a>
-        </div>
-
-        <div id="topbar-left-scrollable-menu-items-container">
-            <ul class="toolbar-left-scrollable-menu-items" [ngClass]="{'toolbar-left-scrollable-menu-items-with-sidebar': isSidebarAvailable(), 'toolbar-left-scrollable-menu-items-without-sidebar': !isSidebarAvailable()}"> 
-                <li #topmenubarnavigation  [ngClass]="{'active-top-menu': app.activeTopbarItem === topmenubarnavigation}" class="toolbar-left-scrollable-menu-item" style="float: none;">
-                    <a href="#" (click)="app.onTopbarItemClick($event,topmenubarnavigation)">
-                        <top-menu></top-menu>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </ng-container>
+    <div class="topbar-item">    
+        <top-menu></top-menu> 
+    </div>           
+    <div class="topbar-item">
+        Profile
+    </div>
 </div>

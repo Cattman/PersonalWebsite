@@ -1,0 +1,4 @@
+dist/**/*.js
+coverage/**/*.js
+node_modules/**/*.js
+src/assets/global/**/*.js

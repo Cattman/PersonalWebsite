@@ -1,31 +1,17 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="layout-wrapper" [ngClass]="{'layout-compact':layoutCompact}">
 
-    <div #layoutContainer class="layout-container" 
-            [ngClass]="{'menu-layout-static': !isOverlay(),
-            'menu-layout-overlay': isOverlay(),
-            'layout-menu-overlay-active': overlayMenuActive,
-            'menu-layout-horizontal': isHorizontal(),
-            'layout-menu-static-inactive': staticMenuDesktopInactive,
-            'layout-menu-static-active': staticMenuMobileActive}">
+<div class="layout-wrapper">
 
-        <top-bar></top-bar>
-        <!-- The sidebar display is hidden automatically when no side menu items are loaded.-->
-        <div [hidden]="isSideMenuHidden()" class="layout-menu" [ngClass]="{'layout-menu-dark':darkMenu}" (click)="onMenuClick($event)">
-            <div #layoutMenuScroller class="nano">
-                <div class="nano-content menu-scroll-content">
-                    <app-inline-profile *ngIf="profileMode=='inline'&&!isHorizontal()"></app-inline-profile>
-                    <menu [reset]="resetMenu"></menu>
-                </div>
-            </div>
+    <div class="layout-container">
+        <div class= "topbar-container">
+            <top-bar></top-bar>
         </div>
         
-        <div [ngClass]="{'override-side-menu-margin-left' : isSideMenuHidden()}" class="layout-main">
-            <router-outlet></router-outlet>
-            
+        <div class="layout-main">
+            <router-outlet></router-outlet>            
         </div>
         
-        <div class="layout-mask" (click)="toggleSideNavBar(false, true)"></div>
+        <div class="layout-mask" (click)="toggleSideNavBar(false, true)">
+        </div>
     </div>
 
 </div>
