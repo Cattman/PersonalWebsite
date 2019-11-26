@@ -1,6 +1,5 @@
-import {SelectItem} from 'primeng/primeng';
 
-export class TopbarSelectItem implements SelectItem {
+export class TopbarSelectItem {
 
     public label: string;
     public value: string;

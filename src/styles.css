@@ -1,32 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "../node_modules/primeicons/primeicons.css";
-@import "../node_modules/primeng/resources/themes/nova-light/theme.css";
-@import "../node_modules/primeng/resources/primeng.min.css";
-@import "../node_modules/primeflex/primeflex.css";
-
-.topbar-container{
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    background: tomato;
-    height: 200px;
-    width: 100%;
-}
-
-.topbar-item{    
-    flex-grow: 1;
-    background: cyan;
-}
-
-.topmenu-container{
-    display: flex;
-    background: seagreen;
-}
-
-.menu-container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-}
+@import "../node_modules/font-awesome/css/font-awesome.css";
+@import '~material-design-icons/iconfont/material-icons.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
