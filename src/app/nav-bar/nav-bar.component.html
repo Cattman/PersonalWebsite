@@ -3,10 +3,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>
-      
-      Menu
-    </mat-toolbar>
+    <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#">Home</a>
       <a mat-list-item href="#/about">About</a>
@@ -27,6 +24,9 @@
       <span>PersonalWebsite</span>
       <img width="50" alt="Angular Logo" src="../assets/global/layout/images/InitialsLogo.ico"/>
     </mat-toolbar>
-    <!-- Add Content Here -->
+    <!-- Add Content Here -->    
+    <div class="layout-main">   
+      <router-outlet></router-outlet> 
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

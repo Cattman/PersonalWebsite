@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {CookieService} from 'ngx-cookie-service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { WeddingComponent } from './wedding/wedding.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     AppContactPageComponent,
     AppAboutPageComponent,
     AppProjectsPageComponent,
-    NavBarComponent
+    NavBarComponent,
+    WeddingComponent
   ],
   imports: [
     MatMenuModule,
