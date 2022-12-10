@@ -62,7 +62,7 @@
     "@ngtools/webpack": "^8.3.19",
     "chart.js": "2.8.0",
     "core-js": "^2.5.7",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "flexgrid": "^4.1.0",
     "font-awesome": "4.7.0",
     "fullcalendar": "^3.9.0",
